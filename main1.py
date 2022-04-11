@@ -21,7 +21,7 @@ from traffic_camera.camera_config import capture_num_frames
 import traffic_camera.license_plate_recognition_API as LPR
 
 ############################ Global Variables ################################
-speed_limit = 5  # in mph
+speed_limit = .5  # in mph
 main_folder = "LPR Speed Photos"  # Name of your main directory
 parent_directory = '/home/pi/Desktop/'  # Location of your main directory
 token = '3f4c5f5da270df4c7b52b0cbf4ddff040df4d458'
@@ -153,7 +153,7 @@ if __name__ == "__main__":
                         conn = urlopen(thingspeakHttp)
                         print("sending result")
                         init = time.time()
-   camera.release()
+                        
         except KeyboardInterrupt:
             # Kill all daemon processes.
             system("sudo pkill python")
