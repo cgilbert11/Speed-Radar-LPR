@@ -5,10 +5,10 @@ sudo apt update
 sudo apt upgrade
 
 echo "Installing pyserial"
-pip install pyserial
+pip3 install pyserial
 
 echo "Installing xlwt"
-pip install xlwt
+pip3 install xlwt
 
 echo "Installing putty"
 sudo apt-get install putty -y
