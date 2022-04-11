@@ -18,11 +18,11 @@ sh install.sh
 ## Usage
 ```
 cd Speed-Radar-LPR
-sudo python main.py
+python3 main.py
 ```
 
 To run upon boot:
 ```
 sudo nano /etc/profile
-  $ sudo python main.py
+  $ python3 main.py
 ```
