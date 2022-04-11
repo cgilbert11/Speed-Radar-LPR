@@ -22,7 +22,7 @@ from traffic_camera.camera_config import capture_num_frames
 import traffic_camera.license_plate_recognition_API as LPR
 
 ############################ Global Variables ################################
-speed_limit = 5  # in mph
+speed_limit = 0.5  # in mph
 main_folder = "LPR Speed Photos"  # Name of your main directory
 parent_directory = '/home/pi/Desktop/'  # Location of your main directory
 
