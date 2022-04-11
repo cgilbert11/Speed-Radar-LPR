@@ -1,14 +1,3 @@
-#!/usr/bin/python3
-#
-# File name: main.py
-# Author: Christian Pedrigal (pedrigalchristian@gmail.com)
-# Date created: 10/25/2021
-# Date last modified: 10/25/2021
-# Python Version: 1.1
-
-################################# Imports ####################################
-
-
 # Standard library imports
 from os import system
 import multiprocessing as mp
@@ -25,15 +14,9 @@ from traffic_camera.file_org import create_daily_folder, move_files_to_path
 
 from traffic_camera.camera_config import capture_num_frames
 
-#from traffic_camera.led_dot_matrix import display_text, flash_text, led
-
 import traffic_camera.license_plate_recognition_API as LPR
 
 ############################ Global Variables ################################
-
-# User Arguments
-# Please modify these arguments to your Traffic Speed Camera application.
-# The `token` variable is from user account from: https://platerecognizer.com/
 speed_limit = 5  # in mph
 main_folder = "LPR Speed Photos"  # Name of your main directory
 parent_directory = '/home/pi/Desktop/'  # Location of your main directory
@@ -48,8 +31,6 @@ FLASH_PERSIST = 0
 ERROR_STR = "ER"
 ############################## Initializations ###############################
 
-# Clear all processes
-
 # Establish serial interface with OPS243.
 connect_USB() 
 
@@ -57,9 +38,6 @@ connect_USB()
 curr_directory = create_main_folder(main_folder, parent_directory)
 daily_folder_path = ''
 folder_path = ''
-
-# Empty display of LED Matrix.
-#led.clear()
 
 # Initialization of variables shared amongst processes.
 speed_list = mp.Array('d', range(DATA_BUFFER))
@@ -142,20 +120,10 @@ if __name__ == "__main__":
                 
                 # And if the reported max speed is less than the speed limit...
                 if max_speed <= speed_limit:
-                    
-                    # The LED Dot Matrix will flash several times.
-                    #flash_text(str(round(max_speed)), FLASH_TIME,
-                                                    #           NUM_FLASH_LONG)
                     print("The captured speed %d mph was below speed limit."
                           % max_speed)
                     
                 else:
-                    
-                    # The LED will flash and persist.
-                    #flash_text(str(round(max_speed)), FLASH_TIME, NUM_FLASH)
-                    #display_text(str(round(max_speed)), FLASH_PERSIST)
-                    
-                    # A timestamp is created for this camera capture.
                     folder_path = create_timestamp_folder(daily_folder_path)
                     print("Exceeded the {} mph speed limit at {} mph!" \
                                         .format(speed_limit, max_speed))
@@ -175,27 +143,8 @@ if __name__ == "__main__":
             
         except:
             #warnings.warn("Keyboard interrupt was detected. Ending program now.")
-            warnings.warn("Ending program now.")
-            #display_text(ERROR_STR)
-            
+            warnings.warn("Ending program now.")            
             camera_process.join(1.0)
             LPR_process.join(3.0)
             warnings.warn("Terminated camera_process and LPR Process")
             sw = 0
-
-        
-
-
-    
-        
-
-
-                
-
-
-
-
-
-
-
-        
