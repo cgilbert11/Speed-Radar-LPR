@@ -81,3 +81,6 @@ def ops_get_speed():
             speed_rnd = round(Ops_rx_float)
 
             return float(speed_rnd)
+
+current_speed = speed.ops_get_speed()
+print(current_speed)
