@@ -1,9 +1,5 @@
 #!/bin/sh
 
-echo "Installing Updates"
-sudo apt update
-sudo apt upgrade
-
 echo "Installing pyserial"
 pip3 install pyserial
 
