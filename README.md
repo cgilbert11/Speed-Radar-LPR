@@ -13,7 +13,7 @@ sh install.sh
 ```
 1. Set up a https://platerecognizer.com/ account
 2. Go to "Account page" and copy the "Cloud API Plan" API Token
-3. Paste Token in token = '123456'
+3. Paste Token in token = '123456' located in main.py
 
 ## Usage
 ```
